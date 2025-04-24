@@ -3,14 +3,17 @@ import { useState } from "react";
 import { createConversation } from "@/services/tavusApi";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { Video, Phone } from "lucide-react";
+import { Video, Phone, Loader2 } from "lucide-react";
 
 const Appointment = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [joinUrl, setJoinUrl] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const startSession = async () => {
     setIsLoading(true);
+    setError(null);
+    
     try {
       const response = await createConversation({
         userId: `user_${Math.random().toString(36).substring(2, 9)}`,
@@ -21,8 +24,10 @@ const Appointment = () => {
       setJoinUrl(response.joinUrl);
       toast.success("Your session is ready!");
     } catch (error) {
-      toast.error("Failed to create session. Please try again.");
       console.error("Session creation error:", error);
+      const errorMessage = error instanceof Error ? error.message : "Unknown error occurred";
+      setError(errorMessage);
+      toast.error("Failed to create session. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -40,15 +45,34 @@ const Appointment = () => {
           </p>
           
           {!joinUrl ? (
-            <Button 
-              onClick={startSession}
-              disabled={isLoading}
-              size="lg"
-              className="bg-wellness-green text-white hover:bg-wellness-green/90 px-8 py-6 text-lg"
-            >
-              <Video className="mr-2" />
-              {isLoading ? "Setting up your session..." : "Start Free Session"}
-            </Button>
+            <div className="space-y-4">
+              <Button 
+                onClick={startSession}
+                disabled={isLoading}
+                size="lg"
+                className="bg-wellness-green text-white hover:bg-wellness-green/90 px-8 py-6 text-lg"
+              >
+                {isLoading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Setting up your session...
+                  </>
+                ) : (
+                  <>
+                    <Video className="mr-2" />
+                    Start Free Session
+                  </>
+                )}
+              </Button>
+              
+              {error && (
+                <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-md mt-4">
+                  <p className="font-medium">There was an issue creating your session</p>
+                  <p className="text-sm mt-1">Please try again or contact support if the problem persists.</p>
+                  <p className="text-xs mt-2 text-red-500">{error}</p>
+                </div>
+              )}
+            </div>
           ) : (
             <div className="space-y-6">
               <div className="bg-white p-8 rounded-lg shadow-md">
