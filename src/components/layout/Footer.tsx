@@ -1,6 +1,6 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import SpringLogoIcon from '@/components/icons/SpringLogoIcon';
 
 const Footer = () => {
   return (
@@ -10,9 +10,9 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 bg-wellness-green rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg">S</span>
+                <SpringLogoIcon />
               </div>
-              <span className="text-wellness-green font-bold text-xl">Serene</span>
+              <span className="text-wellness-green font-bold text-xl">SpringAI</span>
             </div>
             <p className="text-wellness-dark/80 mb-4">
               Your AI wellness companion for mental health support, available anytime.
@@ -58,7 +58,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-12 pt-6 border-t border-wellness-green/20 text-center text-wellness-dark/60">
-          <p>&copy; {new Date().getFullYear()} Serene AI Therapy. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} SpringAI Therapy. All rights reserved.</p>
         </div>
       </div>
     </footer>
