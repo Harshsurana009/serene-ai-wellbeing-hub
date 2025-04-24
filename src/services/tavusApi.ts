@@ -2,10 +2,10 @@
 // This is a mock implementation of the Tavus.io API service
 
 // Dummy API key - this would be a real API key in production
-const TAVUS_API_KEY = "tavus_api_key_123456789";
+const TAVUS_API_KEY = "35a2f80565214fe4a9c7419649c3fd3f";
 
 // API endpoint for Tavus conversations
-const TAVUS_API_ENDPOINT = "https://api.tavus.io/v1/conversations";
+const TAVUS_API_ENDPOINT = "https://tavusapi.com/v2/conversations";
 
 // Interface for conversation parameters
 interface CreateConversationParams {
