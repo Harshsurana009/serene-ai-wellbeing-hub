@@ -1,6 +1,6 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -15,8 +15,11 @@ const HeroSection = () => {
               Experience therapy sessions with our empathetic AI guides, designed to support your mental well-being through real-time video conversations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button className="bg-wellness-green text-white hover:bg-wellness-green/90 px-8 py-6 text-lg">
-                Try Free Session
+              <Button 
+                className="bg-wellness-green text-white hover:bg-wellness-green/90 px-8 py-6 text-lg"
+                asChild
+              >
+                <Link to="/appointment">Try Free Session</Link>
               </Button>
               <Button variant="outline" className="border-wellness-green text-wellness-green hover:bg-wellness-green hover:text-white px-8 py-6 text-lg">
                 Learn More <ArrowRight className="ml-2 h-5 w-5" />

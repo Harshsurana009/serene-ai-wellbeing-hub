@@ -1,6 +1,6 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 const CTASection = () => {
   return (
@@ -52,8 +52,11 @@ const CTASection = () => {
                         <span className="text-wellness-dark/80">No credit card required</span>
                       </li>
                     </ul>
-                    <Button className="w-full bg-wellness-green text-white hover:bg-wellness-green/90">
-                      Try Free Session
+                    <Button 
+                      className="w-full bg-wellness-green text-white hover:bg-wellness-green/90"
+                      asChild
+                    >
+                      <Link to="/appointment">Try Free Session</Link>
                     </Button>
                   </div>
 
