@@ -51,7 +51,7 @@ export const createConversation = async (params: CreateConversationParams): Prom
           participant_absent_timeout: 300,
           enable_recording: false,
           enable_closed_captions: true,
-          apply_greenscreen: true,
+          apply_greenscreen: false,
           language: "english",
         },
       }),
