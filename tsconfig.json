@@ -11,9 +11,21 @@
     },
     "noImplicitAny": false,
     "noUnusedParameters": false,
-    "skipLibCheck": true,
     "allowJs": true,
     "noUnusedLocals": false,
-    "strictNullChecks": false
-  }
+    "strictNullChecks": false,
+    "jsx": "react-jsx", // Tells TypeScript how to handle JSX. Use "react-jsx" for modern React versions.
+    "esModuleInterop": true, // Allows default imports from modules using `export =` like older versions of React types.
+    "moduleResolution": "node", // Ensures modules are resolved correctly.
+    "allowSyntheticDefaultImports": true, // Often used with esModuleInterop.
+    "skipLibCheck": true, // Speeds up type checking by skipping declaration files.
+    "forceConsistentCasingInFileNames": true, // Enforces consistent file naming.
+    "strict": true, // Enable strict type-checking options.
+    "target": "ES2016", // Or a newer target appropriate for your environment
+    "module": "CommonJS", // Jest typically works best with CommonJS for config/setup files
+    "lib": ["dom", "dom.iterable", "esnext"], // Include necessary libraries
+    "noEmit": true
+  },
+  // "include": ["src/**/*", "jest.setup.js", "__tests__/**/*", "*.cjs"], // Ensure test files and setup are included
+  // "exclude": ["node_modules"] // Exclude node_modules
 }
