@@ -9,7 +9,7 @@ const CTASection = () => {
         <div className="max-w-4xl mx-auto">
           <Card className="border-0 shadow-xl bg-white overflow-hidden">
             <div className="relative">
-              <div 
+              <div
                 className="absolute inset-0 bg-gradient-to-r from-wellness-green/20 to-wellness-teal/10"
                 style={{ clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 70%)" }}
               ></div>
@@ -19,76 +19,102 @@ const CTASection = () => {
                     Begin Your Wellness Journey Today
                   </h2>
                   <p className="text-lg text-wellness-dark/70 max-w-2xl mx-auto">
-                    Experience the future of mental health support with our AI wellness guides
+                    Experience the future of mental health support with our AI
+                    wellness guides
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="bg-wellness-cream/70 p-6 rounded-lg">
-                    <h3 className="text-xl font-semibold text-wellness-dark mb-4">Free First Session</h3>
+                    <h3 className="text-xl font-semibold text-wellness-dark mb-4">
+                      Free First Session
+                    </h3>
                     <ul className="space-y-3 mb-6">
                       <li className="flex items-center gap-2">
                         <span className="w-5 h-5 bg-wellness-green/20 rounded-full flex items-center justify-center">
                           <span className="w-2 h-2 bg-wellness-green rounded-full"></span>
                         </span>
-                        <span className="text-wellness-dark/80">30-minute video session</span>
+                        <span className="text-wellness-dark/80">
+                          30-minute video session
+                        </span>
                       </li>
                       <li className="flex items-center gap-2">
                         <span className="w-5 h-5 bg-wellness-green/20 rounded-full flex items-center justify-center">
                           <span className="w-2 h-2 bg-wellness-green rounded-full"></span>
                         </span>
-                        <span className="text-wellness-dark/80">Personalized AI guide</span>
+                        <span className="text-wellness-dark/80">
+                          Personalized AI guide
+                        </span>
                       </li>
                       <li className="flex items-center gap-2">
                         <span className="w-5 h-5 bg-wellness-green/20 rounded-full flex items-center justify-center">
                           <span className="w-2 h-2 bg-wellness-green rounded-full"></span>
                         </span>
-                        <span className="text-wellness-dark/80">Initial wellness assessment</span>
+                        <span className="text-wellness-dark/80">
+                          Initial wellness assessment
+                        </span>
                       </li>
                       <li className="flex items-center gap-2">
                         <span className="w-5 h-5 bg-wellness-green/20 rounded-full flex items-center justify-center">
                           <span className="w-2 h-2 bg-wellness-green rounded-full"></span>
                         </span>
-                        <span className="text-wellness-dark/80">No credit card required</span>
+                        <span className="text-wellness-dark/80">
+                          No credit card required
+                        </span>
                       </li>
                     </ul>
-                    <Button 
+                    <Button
                       className="w-full bg-wellness-green text-white hover:bg-wellness-green/90"
                       asChild
                     >
-                      <Link to="/appointment">Try Free Session</Link>
+                      <Link to="https://care.springhealth.com/browse/therapists">
+                        Try Free Session
+                      </Link>
                     </Button>
                   </div>
 
                   <div className="bg-wellness-green/10 p-6 rounded-lg">
-                    <h3 className="text-xl font-semibold text-wellness-dark mb-4">Membership Benefits</h3>
+                    <h3 className="text-xl font-semibold text-wellness-dark mb-4">
+                      Membership Benefits
+                    </h3>
                     <ul className="space-y-3 mb-6">
                       <li className="flex items-center gap-2">
                         <span className="w-5 h-5 bg-wellness-green/20 rounded-full flex items-center justify-center">
                           <span className="w-2 h-2 bg-wellness-green rounded-full"></span>
                         </span>
-                        <span className="text-wellness-dark/80">Unlimited video sessions</span>
+                        <span className="text-wellness-dark/80">
+                          Unlimited video sessions
+                        </span>
                       </li>
                       <li className="flex items-center gap-2">
                         <span className="w-5 h-5 bg-wellness-green/20 rounded-full flex items-center justify-center">
                           <span className="w-2 h-2 bg-wellness-green rounded-full"></span>
                         </span>
-                        <span className="text-wellness-dark/80">Session recordings & summaries</span>
+                        <span className="text-wellness-dark/80">
+                          Session recordings & summaries
+                        </span>
                       </li>
                       <li className="flex items-center gap-2">
                         <span className="w-5 h-5 bg-wellness-green/20 rounded-full flex items-center justify-center">
                           <span className="w-2 h-2 bg-wellness-green rounded-full"></span>
                         </span>
-                        <span className="text-wellness-dark/80">Wellness tracking tools</span>
+                        <span className="text-wellness-dark/80">
+                          Wellness tracking tools
+                        </span>
                       </li>
                       <li className="flex items-center gap-2">
                         <span className="w-5 h-5 bg-wellness-green/20 rounded-full flex items-center justify-center">
                           <span className="w-2 h-2 bg-wellness-green rounded-full"></span>
                         </span>
-                        <span className="text-wellness-dark/80">24/7 support access</span>
+                        <span className="text-wellness-dark/80">
+                          24/7 support access
+                        </span>
                       </li>
                     </ul>
-                    <Button variant="outline" className="w-full border-wellness-green text-wellness-green hover:bg-wellness-green hover:text-white">
+                    <Button
+                      variant="outline"
+                      className="w-full border-wellness-green text-wellness-green hover:bg-wellness-green hover:text-white"
+                    >
                       View All Plans
                     </Button>
                   </div>

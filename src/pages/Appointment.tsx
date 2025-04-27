@@ -1,31 +1,52 @@
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createConversation } from "@/services/tavusApi";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { Video, Phone, Loader2 } from "lucide-react";
+import { useParams } from "react-router-dom";
 
 const Appointment = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [joinUrl, setJoinUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [appointmentData, setAppointmentData] = useState<any>(null);
+  const { id } = useParams();
+
+  useEffect(() => {
+    const fetchAppointment = async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch(
+          `http://localhost:4400/api/ai_appointments/${id}`
+        );
+        const data = await response.json();
+        setAppointmentData(data);
+      } catch (error) {
+        setError("Failed to fetch appointment");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchAppointment();
+  }, [id]);
 
   const startSession = async () => {
     setIsLoading(true);
     setError(null);
-    
+
     try {
       const response = await createConversation({
-        userId: `user_${Math.random().toString(36).substring(2, 9)}`,
-        sessionType: "therapy",
         duration: 30, // 30 minutes session
+        appointmentData: appointmentData,
       });
-      
+
       setJoinUrl(response.joinUrl);
       toast.success("Your session is ready!");
     } catch (error) {
       console.error("Session creation error:", error);
-      const errorMessage = error instanceof Error ? error.message : "Unknown error occurred";
+      const errorMessage =
+        error instanceof Error ? error.message : "Unknown error occurred";
       setError(errorMessage);
       toast.error("Failed to create session. Please try again.");
     } finally {
@@ -41,12 +62,12 @@ const Appointment = () => {
             Start Your Wellness Journey
           </h1>
           <p className="text-lg text-wellness-dark/70 mb-8">
-            Connect with your AI wellness guide for a free 30-minute consultation
+            Connect with your AI wellness guide for a 30-minute consultation
           </p>
-          
+
           {!joinUrl ? (
             <div className="space-y-4">
-              <Button 
+              <Button
                 onClick={startSession}
                 disabled={isLoading}
                 size="lg"
@@ -60,15 +81,19 @@ const Appointment = () => {
                 ) : (
                   <>
                     <Video className="mr-2" />
-                    Start Free Session
+                    Start Session
                   </>
                 )}
               </Button>
-              
+
               {error && (
                 <div className="bg-red-50 border border-red-200 text-red-700 p-4 rounded-md mt-4">
-                  <p className="font-medium">There was an issue creating your session</p>
-                  <p className="text-sm mt-1">Please try again or contact support if the problem persists.</p>
+                  <p className="font-medium">
+                    There was an issue creating your session
+                  </p>
+                  <p className="text-sm mt-1">
+                    Please try again or contact support if the problem persists.
+                  </p>
                   <p className="text-xs mt-2 text-red-500">{error}</p>
                 </div>
               )}
@@ -80,7 +105,8 @@ const Appointment = () => {
                   Your Session is Ready!
                 </h2>
                 <p className="text-wellness-dark/70 mb-6">
-                  Click the button below to join your video session with your AI wellness guide
+                  Click the button below to join your video session with your AI
+                  wellness guide
                 </p>
                 <Button
                   asChild
@@ -94,7 +120,8 @@ const Appointment = () => {
                 </Button>
               </div>
               <p className="text-sm text-wellness-dark/60">
-                Please ensure your camera and microphone are enabled before joining
+                Please ensure your camera and microphone are enabled before
+                joining
               </p>
             </div>
           )}
