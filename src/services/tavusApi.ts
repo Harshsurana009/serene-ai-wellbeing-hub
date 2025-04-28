@@ -1,7 +1,7 @@
 // Tavus.io API service implementation
 
 // Your Tavus API key
-const TAVUS_API_KEY = "705c82d622284bf4aaf2d9cdbd33e144";
+const TAVUS_API_KEY = "b00cbea975ba46fd8da3a8a7e7853b5b";
 
 // API endpoints for Tavus
 const TAVUS_API_BASE_URL = "https://tavusapi.com/v2/conversations";
@@ -41,8 +41,8 @@ export const createConversation = async (
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        replica_id: "rb17cf590e15",
-        persona_id: "p35254ed7e72",
+        replica_id: "rb91c99ba958",
+        persona_id: "p885e253f6eb",
         callback_url: `https://0145-2409-40d4-10b4-5793-572-3998-f202-17b8.ngrok-free.app/api/ai_appointments/${appointmentData?.id}/webhook`,
         conversation_name: `${appointmentData?.appointment_type} Session with ${memberData?.name}`,
         conversational_context: `You are a compassionate ${providerData?.role} helping users improve their mental wellbeing through mindfulness and cognitive behavioral techniques. The member you are speaking with is currently struggling with ${memberData?.ai_diagnosis}. Offer empathetic support, guide them through coping strategies, and encourage self-care.`,
