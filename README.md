@@ -64,6 +64,10 @@ The app integrates with the Tavus.io API to create, manage, and end video conver
 
 ---
 
+## Test Coverage
+
+![alt text](image.png)
+
 ## Getting Started
 
 ### Prerequisites
